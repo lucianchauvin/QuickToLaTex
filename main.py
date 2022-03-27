@@ -22,11 +22,13 @@ def test():
         word = word[:-1]
 
     word = '$ ' + word + " $"
-
-    sy.preview(word, viewer='file', filename='output.png',
-               dvioptions=['-D', '300'], euler=False)
-    image = Image.open('output.png')
-    send_to_clipboard(image)
+    try:
+        sy.preview(word, viewer='file', filename='output.png',
+                   dvioptions=['-D', '300'], euler=False)
+        image = Image.open('output.png')
+        send_to_clipboard(image)
+    except:
+        pass
 
 
 def send_to_clipboard(image):
